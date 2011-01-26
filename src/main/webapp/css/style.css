@@ -1,0 +1,151 @@
+* {
+margin:0 auto;
+}
+body{
+font-family:"Lucida Grande", "Lucida Sans Unicode", Verdana, Arial, Helvetica, sans-serif;
+font-size:12px;
+}
+p, h1, form, button{border:0; margin:0; padding:0;}
+.spacer{clear:both; height:1px;}
+
+/* navigation */
+#nav {
+	background:#ddd url(../images/h300_reverse.png);
+	border-bottom:1px solid #CCCCCC;
+	height:156px;	
+	width:100%;
+}
+
+#nav ul {	
+	width:650px;
+	margin:0 auto;	
+}
+
+#nav li {
+	float:left;
+	padding-left:1px;
+	width:160px;
+	list-style-type:none;
+	text-align:center;
+	margin-top:0px;
+}
+
+#nav a {
+	color:#333333;
+	display:block;
+	padding:17px;
+	position:relative;
+	word-spacing:-2px;
+	font-size:11px;		
+	height:122px;
+	text-decoration:none;
+}	
+
+#nav a.current {
+	background:url(../images/down_large.jpg);	
+}
+
+#nav img {
+	background-color:#fff;
+	border:1px solid #ccc;
+	margin:3px 0 5px 27px;
+	padding:4px;		
+	display:block;
+}
+
+#nav strong {
+	display:block;		
+	font-size:13px;
+}
+
+/* panes */
+#panes {
+	background:#fff url(../images/h300_reverse.png) repeat scroll 0 0;
+	width:100%;	
+	height:255px;
+	margin-bottom:-20px;
+	padding-bottom:20px;
+	
+	/* must be relative so the individual panes can be absolutely positioned */
+	position:relative;
+}
+
+/* crossfading effect needs absolute positioning from the elements */
+#panes div {
+	display:none;		
+	position:absolute;
+	top:20px;
+	left:20px;
+	font-size:13px;
+	color:#444;	
+	width:650px; 
+}
+
+.nextStep {
+	right:0px;
+}
+
+.previousStep {
+	left:40px;
+}
+
+.stepNavigationLinks a {	
+	position:absolute;	
+	font-size:14px;
+	top:220px;
+	text-decoration:none;
+}
+
+#panes img {
+	float:left;
+	margin-right:20px;		
+}
+
+#panes p.more {
+	color:#000;
+	margin-top: 40px;
+	font-weight:bold;
+	font-size:13px;
+}
+
+#panes h3 {
+	margin:0 0 -5px 0;
+	font-size:22px;
+	font-weight:normal;
+}
+
+.overlay {
+	display:none;
+	width:500px;
+	padding:20px;
+	background-color:#ddd;
+}
+#content {
+	width:80%;
+}
+#header{
+	width:80%;
+	background-color:grey;
+	height:100px;
+}
+#footer {
+	width:80%;
+	background-color:yellow;
+	height:50px;
+}
+#mainWindow {
+	float:left;
+	background-color:red;
+	width: 60%;
+	background-color:magenta;
+}
+#leftColumn{
+	width: 20%;
+	float: left;
+	background-color:cyan;
+}
+#rightColumn{
+	width: 20%;
+	float: left;
+	background-color:green;
+}
