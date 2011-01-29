@@ -1,13 +1,7 @@
 package com.subsconvertor.detector;
 
 import com.subsconvertor.FilesHelperTest;
-import com.subsconvertor.utils.Globals;
-import junit.framework.TestCase;
 import org.junit.Test;
-
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 
 /**
  *
@@ -19,10 +13,10 @@ public class SubsDetectorTest extends FilesHelperTest {
 
         byte[] b  = getByteArrayFromFile("SinNombre.srt");
         assertEquals(sd.detectSubtitleType(b),
-                SubtitleType.SRT);
+                SubtitleType.SubRip);
 
         b = getByteArrayFromFile("Respiro.sub");
         assertEquals(sd.detectSubtitleType(b),
-                SubtitleType.SUB);
+                SubtitleType.MicroDVD);
     }
 }

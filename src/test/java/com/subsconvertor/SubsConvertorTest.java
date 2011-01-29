@@ -2,7 +2,6 @@ package com.subsconvertor;
 
 import com.subsconvertor.detector.SubtitleType;
 
-import java.io.File;
 import java.math.BigDecimal;
 
 /**
@@ -24,7 +23,7 @@ public class SubsConvertorTest extends FilesHelperTest {
 //        saveNewConvertedFile(sb, "SinNombre_converted.srt");
 
 
-        conv.setSubtitleType(SubtitleType.SRT);
+        conv.setSubtitleType(SubtitleType.SubRip);
         byte[] b = getByteArrayFromFile("Respiro.sub");
         StringBuilder sb = conv.convert(b);
         sb = conv.convert(b);

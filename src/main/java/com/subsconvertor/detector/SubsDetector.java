@@ -18,9 +18,9 @@ public class SubsDetector {
             BufferedReader br = new BufferedReader(new InputStreamReader(bis));
 
             if (checkSrtFile(br)) {
-                return SubtitleType.SRT;
+                return SubtitleType.SubRip;
             } else if (checkSubFile(br)) {
-                return SubtitleType.SUB;
+                return SubtitleType.MicroDVD;
             } else {
                 throw new SystemException("Subtitle type not recognized");
             }
@@ -38,7 +38,7 @@ public class SubsDetector {
             boolean srtSecondLine = false;
             while ((strLine = br.readLine()) != null) {
                 if (counter == 1) {
-                    Pattern pattern = Pattern.compile(Globals.SRT_PATTERN_FIRST_LINE);
+                    Pattern pattern = Pattern.compile(Globals.SubRip_PATTERN_FIRST_LINE);
                     Matcher matcher = pattern.matcher(strLine);
                     while (matcher.find()) {
                         if (matcher.group() != null) {
@@ -47,7 +47,7 @@ public class SubsDetector {
                     }
                 }
                 if (counter == 2 && srtFirstLine == true) {
-                    Pattern pattern = Pattern.compile(Globals.SRT_PATTERN_TIME_LINE);
+                    Pattern pattern = Pattern.compile(Globals.SubRip_PATTERN_TIME_LINE);
                     Matcher matcher = pattern.matcher(strLine);
                     if (matcher.find()) {
                         srtSecondLine = true;

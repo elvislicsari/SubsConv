@@ -12,8 +12,8 @@ import java.util.Map;
 public class ConvertorFactory {
 
     private static final Map<SubtitleType, Converter> cache = new HashMap<SubtitleType, Converter>(2) {{
-        put(SubtitleType.SRT, new SrtConverter());
-        put(SubtitleType.SUB, new SubConverter());
+        put(SubtitleType.SubRip, new SubRipConverter());
+        put(SubtitleType.MicroDVD, new MicroDVDConverter());
     }};
 
     public static Converter create(SubtitleType type) {
