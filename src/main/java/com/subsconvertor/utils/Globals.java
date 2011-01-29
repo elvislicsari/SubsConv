@@ -15,8 +15,6 @@ public interface Globals {
     public static final String SUB_PATTERN_FIRST_LINE = "\\{\\d+\\}";
     public static final String SUB_PATTERN_SECOND_LINE = "\\{\\d+\\}";
 
-    //sub file paths
-    public static final String PATH_UPLOAD_ORIGINAL_SUBTITLES = "/files/original/";
-    public static final String PATH_CONVERTED_SUBTITLES = "/files/converted/";
+    public static final String SUB_PATTERN_ENTIRE_LINE = "\\{(\\d+)\\}\\{(\\d+)\\}(.*)";
 
 }

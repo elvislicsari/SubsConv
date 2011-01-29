@@ -1,5 +1,8 @@
 package com.subsconvertor.utils;
 
+import org.joda.time.DateTime;
+import org.joda.time.DateTimeZone;
+
 /**
  *
  */
@@ -25,5 +28,15 @@ public class IntegerUtils {
         } else {
             return "" + i;
         }
+    }
+
+
+    public static String milliSecsToHMSMs(long millisecs) {
+        DateTime date = new DateTime(millisecs, DateTimeZone.UTC);
+
+        return appendZero(date.getHourOfDay())+":"
+                +appendZero(date.getMinuteOfHour())+":"
+                +appendZero(date.getSecondOfMinute())+","
+                +appendZeroForMilli(date.getMillisOfSecond());
     }
 }

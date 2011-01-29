@@ -12,12 +12,10 @@ import java.util.regex.Pattern;
  */
 public class SubsDetector {
 
-    public SubtitleType detectSubtitleType(File sub) {
+    public SubtitleType detectSubtitleType(byte[] b) {
         try {
-            FileInputStream fstream = new FileInputStream(sub);
-
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            ByteArrayInputStream bis = new ByteArrayInputStream(b);
+            BufferedReader br = new BufferedReader(new InputStreamReader(bis));
 
             if (checkSrtFile(br)) {
                 return SubtitleType.SRT;

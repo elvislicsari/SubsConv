@@ -7,5 +7,5 @@ import java.math.BigDecimal;
  *
  */
 public interface Converter {
-    public StringBuilder createNewConvertedSubtitle(File subtitle, BigDecimal ratio);
+    public StringBuilder createNewConvertedSubtitle(byte[] subtitle, BigDecimal ratio);
 }

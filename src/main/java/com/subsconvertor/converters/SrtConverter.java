@@ -1,6 +1,7 @@
 package com.subsconvertor.converters;
 
 import com.subsconvertor.exception.SystemException;
+import com.subsconvertor.utils.FileUtils;
 import com.subsconvertor.utils.IntegerUtils;
 import com.subsconvertor.utils.Globals;
 import org.joda.time.DateTime;
@@ -16,13 +17,11 @@ class SrtConverter implements Converter {
 
     private BigDecimal ratio;
 
-    public StringBuilder createNewConvertedSubtitle(File sub, BigDecimal ratio) {
+    public StringBuilder createNewConvertedSubtitle(byte[] b, BigDecimal ratio) {
         this.ratio = ratio;
         StringBuilder sb = new StringBuilder();
         try {
-            FileInputStream fstream = new FileInputStream(sub);
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            BufferedReader br = FileUtils.getBufferedReaderFromByteArray(b);
 
             String strLine;
 
@@ -59,8 +58,6 @@ class SrtConverter implements Converter {
                 sb.append(newString);
 
             }
-            in.close();
-
         } catch (Exception e) {
             throw new SystemException(e.getMessage());
         }

@@ -2,6 +2,8 @@ package com.subsconvertor;
 
 import com.subsconvertor.converters.Converter;
 import com.subsconvertor.converters.ConvertorFactory;
+import com.subsconvertor.converters.type.SubtitleTypeConverter;
+import com.subsconvertor.converters.type.SubtitleTypeConverterFactory;
 import com.subsconvertor.detector.SubsDetector;
 import com.subsconvertor.detector.SubtitleType;
 import com.subsconvertor.utils.FileUtils;
@@ -15,50 +17,32 @@ public class ConversionExec {
     private SubsDetector subsDetector;
     private BigDecimal fromFramerate;
     private BigDecimal toFramerate;
+    private SubtitleType subType;
 
     public ConversionExec() {
         subsDetector = new SubsDetector();
     }
 
-    public void convert(String subtitle) {
+    public StringBuilder convert(byte[] sub) {
 
-        //detect the file
-//        File sub = new File("resources\\files\\original\\" + subtitle);
-        File sub = new File(ConversionExec.class.getClass().getResource(Globals.PATH_UPLOAD_ORIGINAL_SUBTITLES
-                +subtitle).getPath());
-
-//        System.out.println(sub.getAbsolutePath());
-
-        SubtitleType subType = subsDetector.detectSubtitleType(sub);
-        Converter conv = ConvertorFactory.create(subType);
+        //detect the file type
+        SubtitleType subTypeDetected = subsDetector.detectSubtitleType(sub);
+        Converter conv = ConvertorFactory.create(subTypeDetected);
         BigDecimal ratio = fromFramerate.divide(toFramerate);
 
         StringBuilder sb = conv.createNewConvertedSubtitle(sub, ratio);
-        saveNewConvertedFile(sb, sub);
+
+        //inca nu e vremea pentru asa ceva
+//        if (subTypeDetected != subType) {
+//            SubtitleTypeConverter typeConv = SubtitleTypeConverterFactory.create(subTypeDetected, subType);
+//            sb = typeConv.convert(sb);
+//        }
+
+        return sb;
     }
 
-    void saveNewConvertedFile(StringBuilder sb, File sub) {
-        try {
-            // Create file
-//            FileWriter fstreamWrite = new FileWriter("files\\converted\\" +
-//                    FileUtils.getFileName(sub.getName()) + "_converted" +
-//                    FileUtils.getFileExtension(sub.getName()));
-//            System.out.println(ConversionExec.class.getClass().getResource("/files/converted/").getPath() +
-//                    FileUtils.getFileName(sub.getName()) + "_converted" +
-//                    FileUtils.getFileExtension(sub.getName()));
-            FileWriter fstreamWrite = new FileWriter(
-                    ConversionExec.class.getClass().getResource(Globals.PATH_CONVERTED_SUBTITLES).getPath() +
-                    FileUtils.getFileName(sub.getName()) + "_converted" +
-                    FileUtils.getFileExtension(sub.getName()));
-
-            BufferedWriter out = new BufferedWriter(fstreamWrite);
-            out.write(sb.toString());
-            //Close the output stream
-            out.close();
-        } catch (Exception e) {//Catch exception if any
-            System.err.println("Error: " + e.getMessage());
-        }
-
+    public void setSubtitleType(SubtitleType subType) {
+        this.subType = subType;
     }
 
     public BigDecimal getFromFramerate() {

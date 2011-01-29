@@ -1,6 +1,8 @@
 package com.subsconvertor.webapp;
 
 import com.subsconvertor.ConversionExec;
+import com.subsconvertor.dao.PMF;
+import com.subsconvertor.dao.Subtitle;
 import com.subsconvertor.utils.FileUtils;
 import com.subsconvertor.utils.Globals;
 import org.springframework.stereotype.Controller;
@@ -35,7 +37,7 @@ public class UploadController {
                 sub.getFramerateInto() != 0 &&
                 !sub.getSubtitle().isEmpty()) {
 
-            System.out.println("uploading 123");
+            System.out.println("uploading");
             uploadFile(sub);
             System.out.println("end uploading");
 
@@ -52,25 +54,8 @@ public class UploadController {
     }
 
     public void uploadFile(UploadItem sub) {
-        try {
-
-            System.out.println(ConversionExec.class.getClass().getResource(Globals.PATH_UPLOAD_ORIGINAL_SUBTITLES).getPath());
-
-            System.out.println(UploadController.class.getClass().getResource(Globals.PATH_UPLOAD_ORIGINAL_SUBTITLES).getPath() +
-                    sub.getSubtitle().getOriginalFilename());
-
-            FileWriter fstreamWrite = new FileWriter(
-                    UploadController.class.getClass().getResource(Globals.PATH_UPLOAD_ORIGINAL_SUBTITLES).getPath() +
-                    sub.getSubtitle().getOriginalFilename());
-
-            BufferedWriter out = new BufferedWriter(fstreamWrite);
-            String fileContent = new String(sub.getSubtitle().getBytes());
-            System.out.println("file length"+fileContent.length());
-            out.write(fileContent);
-            //Close the output stream
-            out.close();
-        } catch (Exception e) {//Catch exception if any
-            e.printStackTrace();
-        }
+        System.out.println("upload");
+        PMF.get().getPersistenceManager().makePersistent(new Subtitle());
+        System.out.println("dupa upload");
     }
 }

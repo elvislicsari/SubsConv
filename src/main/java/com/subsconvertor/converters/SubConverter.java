@@ -1,6 +1,7 @@
 package com.subsconvertor.converters;
 
 import com.subsconvertor.exception.SystemException;
+import com.subsconvertor.utils.FileUtils;
 import com.subsconvertor.utils.Globals;
 
 import java.io.*;
@@ -12,12 +13,10 @@ import java.util.regex.Pattern;
 
 class SubConverter implements Converter {
 
-    public StringBuilder createNewConvertedSubtitle(File sub, BigDecimal ratio) {
+    public StringBuilder createNewConvertedSubtitle(byte[] b, BigDecimal ratio) {
         StringBuilder sb = new StringBuilder();
         try {
-            FileInputStream fstream = new FileInputStream(sub);
-            DataInputStream in = new DataInputStream(fstream);
-            BufferedReader br = new BufferedReader(new InputStreamReader(in));
+            BufferedReader br = FileUtils.getBufferedReaderFromByteArray(b);
 
             String strLine;
 //            int counter = 1;
@@ -72,8 +71,6 @@ class SubConverter implements Converter {
 //                }
 //                counter++;
             }
-
-            in.close();
         } catch (Exception e) {
             throw new SystemException(e.getMessage());
         }
