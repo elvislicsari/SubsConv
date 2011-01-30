@@ -29,18 +29,18 @@
 					Select framerate from:
 					<select name="framerateFrom">
 						<option value="0">Please select</option>
-						<option value="23976">23976</option>
-						<option value="25000">25000</option>
-						<option value="29000">29000</option>
+						<option value="23.976">23.976</option>
+						<option value="25.000">25.000</option>
+						<option value="29.970">29.970</option>
 					</select>
 				</p>
 				<p class="more">
 					Select framerate into:
 					<select name="framerateInto">
 						<option value="0">Please select</option>
-						<option value="23976">23976</option>
-						<option value="25000">25000</option>
-						<option value="29000">29000</option>
+						<option value="23.976">23.976</option>
+						<option value="25.000">25.000</option>
+						<option value="29.970">29.970</option>
 					</select>
 				</p>
 

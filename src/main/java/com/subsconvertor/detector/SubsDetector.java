@@ -76,7 +76,7 @@ public class SubsDetector {
             boolean subSecondLine = false;
             while ((strLine = br.readLine()) != null) {
                 if (counter == 1) {
-                    Pattern pattern = Pattern.compile(Globals.SUB_PATTERN_FIRST_LINE);
+                    Pattern pattern = Pattern.compile(Globals.MicroDVD_PATTERN_FIRST_LINE);
                     Matcher matcher = pattern.matcher(strLine);
                     while (matcher.find()) {
                         if (matcher.group() != null) {
@@ -85,7 +85,7 @@ public class SubsDetector {
                     }
                 }
                 if (counter == 2 && subFirstLine == true) {
-                    Pattern pattern = Pattern.compile(Globals.SUB_PATTERN_SECOND_LINE);
+                    Pattern pattern = Pattern.compile(Globals.MicroDVD_PATTERN_SECOND_LINE);
                     Matcher matcher = pattern.matcher(strLine);
                     if (matcher.find()) {
                         subSecondLine = true;

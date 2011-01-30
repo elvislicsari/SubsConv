@@ -12,22 +12,27 @@ public class SubsConvertorTest extends FilesHelperTest {
     public void testConversion() throws Exception {
 
         ConversionExec conv = new ConversionExec();
-        conv.setFromFramerate(new BigDecimal(23.976));
-        conv.setToFramerate(new BigDecimal(25));
+        conv.setFromFramerate(new BigDecimal(29.97));
+        conv.setToFramerate(new BigDecimal(29.97));
 //        byte[] b = getByteArrayFromFile("Respiro.sub");
 //        StringBuilder sb = conv.convert(b);
 //        saveNewConvertedFile(sb, "Respiro_converted.sub");
 //
-//        b = getByteArrayFromFile("SinNombre.srt");
-//        sb = conv.convert(b);
-//        saveNewConvertedFile(sb, "SinNombre_converted.srt");
+//        byte[] b = getByteArrayFromFile("SinNombre.srt");
+//        StringBuilder sb = conv.convert(b);
+//        saveNewConvertedFile(sb, "subsynched.srt");
 
 
-        conv.setSubtitleType(SubtitleType.SubRip);
-        byte[] b = getByteArrayFromFile("Respiro.sub");
+//        conv.setSubtitleType(SubtitleType.SubRip);
+//        byte[] b = getByteArrayFromFile("Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.sub");
+//        StringBuilder sb = conv.convert(b);
+//        saveNewConvertedFile(sb, "subsynch_converted.srt");
+
+
+        conv.setSubtitleType(SubtitleType.MicroDVD);
+        byte[] b = getByteArrayFromFile("Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.srt");
         StringBuilder sb = conv.convert(b);
-        sb = conv.convert(b);
-        saveNewConvertedFile(sb, "Respiro_converted.srt");
+        saveNewConvertedFile(sb, "Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.sub");
 
 
     }

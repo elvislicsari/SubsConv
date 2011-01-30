@@ -6,11 +6,11 @@ import com.subsconvertor.converters.type.SubtitleTypeConverter;
 import com.subsconvertor.converters.type.SubtitleTypeConverterFactory;
 import com.subsconvertor.detector.SubsDetector;
 import com.subsconvertor.detector.SubtitleType;
-import com.subsconvertor.utils.FileUtils;
-import com.subsconvertor.utils.Globals;
+
 
 import java.io.*;
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 public class ConversionExec {
 
@@ -28,15 +28,14 @@ public class ConversionExec {
         //detect the file type
         SubtitleType subTypeDetected = subsDetector.detectSubtitleType(sub);
         Converter conv = ConvertorFactory.create(subTypeDetected);
-        BigDecimal ratio = fromFramerate.divide(toFramerate);
+        BigDecimal ratio = fromFramerate.divide(toFramerate, 10, BigDecimal.ROUND_UP);
 
         StringBuilder sb = conv.createNewConvertedSubtitle(sub, ratio);
 
-        //inca nu e vremea pentru asa ceva
-//        if (subTypeDetected != subType) {
-//            SubtitleTypeConverter typeConv = SubtitleTypeConverterFactory.create(subTypeDetected, subType);
-//            sb = typeConv.convert(sb);
-//        }
+        if (subType != null && subTypeDetected != subType) {
+            SubtitleTypeConverter typeConv = SubtitleTypeConverterFactory.create(subTypeDetected, subType);
+            sb = typeConv.convert(sb, toFramerate.intValue());
+        }
 
         return sb;
     }
