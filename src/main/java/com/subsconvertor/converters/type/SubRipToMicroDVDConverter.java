@@ -17,12 +17,17 @@ class SubRipToMicroDVDConverter implements SubtitleTypeConverter {
 
         Scanner sc = new Scanner(sb.toString()).useDelimiter(Globals.newline);
         boolean nextLineIsContent = false;
+        boolean alreadyAppendedLine = false;
         String subLine = "";
         while (sc.hasNext()) {
             subLine = sc.next();
 
             if (nextLineIsContent) {
+                if (alreadyAppendedLine && !((subLine.equals(Globals.newline) || subLine.equals("")))) {
+                    sbNew.append("|");
+                }
                 sbNew.append(subLine);
+                alreadyAppendedLine = true;
             }
 
             Pattern pattern = Pattern.compile(Globals.SubRip_PATTERN_ENTIRE_TIME_LINE);
@@ -42,6 +47,7 @@ class SubRipToMicroDVDConverter implements SubtitleTypeConverter {
             if (subLine.equals(Globals.newline) || subLine.equals("")) {
                 sbNew.append(Globals.newline);
                 nextLineIsContent = false;
+                alreadyAppendedLine = false;
             }
         }
         return sbNew;

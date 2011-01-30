@@ -1,7 +1,5 @@
 package com.subsconvertor.webapp;
 
-import com.subsconvertor.dao.PMF;
-import com.subsconvertor.dao.Subtitle;
 import com.subsconvertor.dao.SubtitleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,8 +52,8 @@ public class UploadController {
     }
 
     public void uploadFile(UploadItem sub) {
-        System.out.println("upload");
-        PMF.get().getPersistenceManager().makePersistent(new Subtitle());
-        System.out.println("dupa upload");
+//        System.out.println("upload");
+//        PMF.get().getPersistenceManager().makePersistent(new Subtitle());
+//        System.out.println("dupa upload");
     }
 }
