@@ -10,7 +10,7 @@ import javax.persistence.PersistenceContext;
 /**
  * User: cristian.popovici
  */
-@Repository(value = "SubtitleDao")
+@Repository(value = "subtitleDao")
 public class SubtitleDao {
 
     @PersistenceContext
@@ -20,5 +20,4 @@ public class SubtitleDao {
     public Subtitle saveSubtitle(Subtitle sub) {
         return em.merge(sub);
     }
-
 }

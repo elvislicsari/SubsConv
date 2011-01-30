@@ -2,6 +2,7 @@ package com.subsconvertor;
 
 import com.subsconvertor.detector.SubsDetectorTest;
 import junit.framework.TestCase;
+import org.junit.Test;
 
 import java.io.*;
 
@@ -26,7 +27,7 @@ public class FilesHelperTest extends TestCase {
         return b;
     }
 
-    void saveNewConvertedFile(StringBuilder sb, String filename) {
+    public void saveNewConvertedFile(StringBuilder sb, String filename) {
         try {
             FileWriter fstreamWrite = new FileWriter(
                     Thread.currentThread().getClass().getResource(PATH_CONVERTED_SUBTITLES).getPath() + filename);
@@ -39,5 +40,10 @@ public class FilesHelperTest extends TestCase {
             System.err.println("Error: " + e.getMessage());
             e.printStackTrace();
         }
+    }
+
+    @Test
+    public void testAll() {
+
     }
 }

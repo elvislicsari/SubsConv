@@ -1,5 +1,6 @@
 package com.subsconvertor.webapp;
 
+import com.subsconvertor.dao.Subtitle;
 import com.subsconvertor.dao.SubtitleDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,7 +19,7 @@ public class UploadController {
     private static final Logger logger = Logger.getLogger("UploadController");
 
     @Autowired
-    private SubtitleDao dao;
+    private SubtitleDao subtitleDao;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getUploadForm(Model model) {
@@ -52,8 +53,18 @@ public class UploadController {
     }
 
     public void uploadFile(UploadItem sub) {
-//        System.out.println("upload");
-//        PMF.get().getPersistenceManager().makePersistent(new Subtitle());
-//        System.out.println("dupa upload");
+        Subtitle subb = new Subtitle();
+        subb.setFramerateFrom(25);
+        subb.setFramerateInto(25);
+        subb.setSubtitleName("test.srt");
+        subb.setSubtitleType("srt");
+        subb.setSubtitleConvertedContent(sub.getSubtitle().getBytes());
+        subb.setSubtitleOriginalContent(sub.getSubtitle().getBytes());
+
+        subtitleDao.saveSubtitle(subb);
+    }
+
+    public void setSubtitleDao(SubtitleDao dao) {
+        subtitleDao = dao;
     }
 }

@@ -29,10 +29,10 @@ public class SubsConvertorTest extends FilesHelperTest {
 //        saveNewConvertedFile(sb, "subsynch_converted.srt");
 
 
-        conv.setSubtitleType(SubtitleType.MicroDVD);
-        byte[] b = getByteArrayFromFile("Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.srt");
-        StringBuilder sb = conv.convert(b);
-        saveNewConvertedFile(sb, "Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.sub");
+//        conv.setSubtitleType(SubtitleType.MicroDVD);
+//        byte[] b = getByteArrayFromFile("Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.srt");
+//        StringBuilder sb = conv.convert(b);
+//        saveNewConvertedFile(sb, "Black.Swan.2010.720p.WEBSCR.XviD.AC3-TiMPE.sub");
 
 
     }

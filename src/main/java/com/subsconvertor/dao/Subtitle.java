@@ -25,7 +25,7 @@ public class Subtitle {
 
     private int framerateFrom;
 
-    private int framerateinto;
+    private int framerateInto;
 
     public Key getId() {
         return id;
@@ -75,11 +75,11 @@ public class Subtitle {
         this.framerateFrom = framerateFrom;
     }
 
-    public int getFramerateinto() {
-        return framerateinto;
+    public int getFramerateInto() {
+        return framerateInto;
     }
 
-    public void setFramerateinto(int framerateinto) {
-        this.framerateinto = framerateinto;
+    public void setFramerateInto(int framerateInto) {
+        this.framerateInto = framerateInto;
     }
 }
