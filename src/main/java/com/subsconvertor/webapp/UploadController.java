@@ -1,18 +1,15 @@
 package com.subsconvertor.webapp;
 
-import com.subsconvertor.ConversionExec;
 import com.subsconvertor.dao.PMF;
 import com.subsconvertor.dao.Subtitle;
-import com.subsconvertor.utils.FileUtils;
-import com.subsconvertor.utils.Globals;
+import com.subsconvertor.dao.SubtitleDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +17,10 @@ import java.util.logging.Logger;
 @RequestMapping(value = "/index.html")
 public class UploadController {
 
-    Logger l = Logger.getLogger("UploadController");
+    private static final Logger logger = Logger.getLogger("UploadController");
+
+    @Autowired
+    private SubtitleDao dao;
 
     @RequestMapping(method = RequestMethod.GET)
     public String getUploadForm(Model model) {
@@ -50,7 +50,7 @@ public class UploadController {
     }
 
     private void info(String message) {
-        l.log(Level.INFO, message);
+        logger.log(Level.INFO, message);
     }
 
     public void uploadFile(UploadItem sub) {

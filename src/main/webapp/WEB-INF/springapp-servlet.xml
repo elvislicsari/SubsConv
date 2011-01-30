@@ -19,4 +19,12 @@
         <property name="maxUploadSize" value="100000"/>
     </bean>
 
+    <bean class="com.subsconvertor.dao.SingletonEntityManagerFactory" id="entityManagerFactory" lazy-init="false">
+        <property name="persistenceUnitName" value="transactions-optional"/>
+    </bean>
+
+    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
+        <property name="entityManagerFactory" ref="entityManagerFactory"/>
+    </bean>
+
 </beans>

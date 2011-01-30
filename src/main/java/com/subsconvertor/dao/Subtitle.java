@@ -1,37 +1,30 @@
 package com.subsconvertor.dao;
 
 import com.google.appengine.api.datastore.Key;
-import com.google.appengine.api.users.User;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.PrimaryKey;
-
-
-@PersistenceCapable
+@Entity
 public class Subtitle {
-    @PrimaryKey
-    @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Key id;
 
-    @Persistent
     private String subtitleName;
 
-    @Persistent
     private String subtitleType;
 
-    @Persistent
     private byte[] subtitleOriginalContent;
 
-    @Persistent
     private byte[] subtitleConvertedContent;
 
-    @Persistent
     private int framerateFrom;
 
-    @Persistent
     private int framerateinto;
 
     public Key getId() {

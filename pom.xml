@@ -15,6 +15,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>3.0.5.RELEASE</version>
+        </dependency>
+        <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
             <version>1.6.2</version>
