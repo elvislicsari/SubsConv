@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<head>
+<title>Subtitle synchronizer</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<meta name="author" content="The Man in Blue">
+<meta name="robots" content="all">
+<meta name="MSSmartTagsPreventParsing" content="true">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<style type="text/css" media="all">
+	@import "css/main.css";
+	@import "css/fieldsets.css";
+	@import "css/rounded_corners.css";
+	@import "css/panel.css";
+	@import "css/menu.css";
+</style>
+<script type="text/javascript" src="js/jquery-1.txt"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".trigger").click(function(){
+		$(".panel").toggle("fast");
+		$(this).toggleClass("active");
+		return false;
+	});
+});
+</script>
+</head>
+<body>
+	<div id ="header">
+		<ul class="menu">
+			<li>
+				<a href="index.htm">sub synch</a>
+			</li>
+			<li class="current">
+				<a href="faq.htm">faq</a>
+			</li>
+			<li>
+				<a href="about.htm">about</a>			
+			</li>
+			
+		</ul>
+	</div>	
+
+
+	<div id="content">
+		<h2>Faq</h2>
+		
+		<h3><a name="framerateFrom"></a>What does framerate from means?</h3>
+		<p>Framerate from is the current framerate of the subtitle. If you want to use SubSynch with a subtitle, then, most probably the subtitle's framerate is not the correct one.  </p>
+				
+		<h3><a name="framerateInto"></a>What does framerate into means?</h3>
+		<p>Framerate into represents the desired framerate afer which your subtitle will be synchronized. If right now you have a movie player opened and you're trying to find a good subtitle for the movie, then the framerate into is the framerate of the movie. Many movie players show you this framerate in the main player window. 99% of the cases it's one of these values: 23.976, 25.000 or 29.97. If the movie player is indicating another framerate, then Sub Synch is currently unable to help you. In this case leave us a feedback on Tweeter or Facebook.</p>
+		
+		<h3><a name="subtitleType"></a>Why would i want to change the subtitle type?</h3>
+		<p>I actually have no idea why would you want to do such a thing, but if you really want to, you can. A friend of mine told me that there are some movie players for which some subtitle types do not work. I don't know which movie players are these, or in which era were they used, but i have included the functionality just in case.</p>
+		
+		<h3>What does SubRip means?</h3>
+		<p>SubRip is the most encountered type of subtitle, at least from what i have seen lately. You can read more on Wikipedia if you are really that interested. The SubRip subtitles have the .srt extension and the subtitle content is being hold like in the example below:<br />
+		771<br />
+		01:06:48,103 --> 01:06:50,072<br />
+		You talking to me?<br />
+		<br />
+		772<br />
+		01:06:52,341 --> 01:06:55,711<br />
+		Then who the hell else are you talking to? You talking to me?
+		</p>
+		
+		<h3>What does MultiDVD means?</h3>
+		<p>It's another type of subtitle, often encountered on any subtitles site. The subtitles files have the extension .sub and the content is stored differently than the SubRip files.Check it out:<br />
+		{11270}{11335}More bla bla
+		</p>
+		
+		<h3>Why would i want to change the framerate?</h3>
+		<p>Mainly to escape the frustration when you don't find a correct subtitle for the movie you want to see. </p>
+		
+		<h3>How do i translate from one language into another?</h3>
+		<p>This should pretty straight forward, just select the language from </p>
+		
+		<h3>What should i do with the downloaded subtitle?</h3>
+		<p>answer</p>
+		
+		<h3>How do i ask for new features ?</h3>
+		<p>answer</p>
+		
+		<h3>What should i do if a subtitle is not synchronized correctly ?</h3>
+		<p>answer</p>
+		
+		<h3>Is this tool actually needed ?</h3>
+		<p>answer</p>
+		
+		<h3>I have synchronized my subtitle but it still doesn't work, what is the problem ?</h3>
+		<p>answer</p>
+	</div>
+
+	<div id="footer"> 
+		<div id="footerImagesLeft">
+			<p>design and programing by <a href="#">E</a>&<a href="#">C</a></p>
+			<img src="images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" />
+		</div>
+		<div id="footerImagesRight">
+			<a href="http://twitter.com/share" class="twitter-share-button" data-count="horizontal">Tweet</a><script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+		</div>	
+</div>
+</body></html>

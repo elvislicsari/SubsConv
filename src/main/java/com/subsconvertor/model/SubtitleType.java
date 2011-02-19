@@ -1,4 +1,4 @@
-package com.subsconvertor.detector;
+package com.subsconvertor.model;
 
 /**
  *

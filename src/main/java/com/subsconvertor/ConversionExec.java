@@ -5,12 +5,10 @@ import com.subsconvertor.converters.ConvertorFactory;
 import com.subsconvertor.converters.type.SubtitleTypeConverter;
 import com.subsconvertor.converters.type.SubtitleTypeConverterFactory;
 import com.subsconvertor.detector.SubsDetector;
-import com.subsconvertor.detector.SubtitleType;
+import com.subsconvertor.model.SubtitleType;
 
 
-import java.io.*;
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 public class ConversionExec {
 
