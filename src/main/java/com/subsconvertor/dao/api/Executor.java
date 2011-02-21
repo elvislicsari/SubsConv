@@ -1,13 +1,11 @@
 package com.subsconvertor.dao.api;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.support.KeyHolder;
 
 import javax.sql.DataSource;
 import java.util.List;
 
-/**
- * User: cristian.popovici
- */
 public abstract class Executor<T> {
 
     private final JdbcTemplate template;
@@ -29,5 +27,11 @@ public abstract class Executor<T> {
 
     public void executeUpdate(final Update command) {
         template.update(command.prepareStatement());
+    }
+
+    public long executeUpdate(final Insert command) {
+        KeyHolder keyHolder = command.getKeyHolder();
+        template.update(command.prepareStatement(), keyHolder);
+        return keyHolder.getKey().longValue();
     }
 }

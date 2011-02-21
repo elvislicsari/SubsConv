@@ -8,7 +8,7 @@ import org.junit.Test;
 public class UploadControllerTest {
     @Test
     public void testUploadFile() throws Exception {
-//        UploadController up = new UploadController();
+//        SubSynchController up = new SubSynchController();
 //        up.uploadFile(null);
     }
 }

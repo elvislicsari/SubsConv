@@ -1,20 +1,26 @@
 package com.subsconvertor.model;
 
+import com.google.api.translate.Language;
+
 public class Subtitle {
 
     private long id;
 
     private String subtitleName;
 
-    private String subtitleType;
+    private String subtitleContentType;
 
     private byte[] subtitleOriginalContent;
 
     private byte[] subtitleConvertedContent;
 
-    private int framerateFrom;
+    private float framerateFrom;
 
-    private int framerateInto;
+    private float framerateInto;
+
+    private String subtitleType;
+
+    private String language;
 
     public long getId() {
         return id;
@@ -32,12 +38,12 @@ public class Subtitle {
         this.subtitleName = subtitleName;
     }
 
-    public String getSubtitleType() {
-        return subtitleType;
+    public String getSubtitleContentType() {
+        return subtitleContentType;
     }
 
-    public void setSubtitleType(String subtitleType) {
-        this.subtitleType = subtitleType;
+    public void setSubtitleContentType(String subtitleContentType) {
+        this.subtitleContentType = subtitleContentType;
     }
 
     public byte[] getSubtitleOriginalContent() {
@@ -56,19 +62,35 @@ public class Subtitle {
         this.subtitleConvertedContent = subtitleConvertedContent;
     }
 
-    public int getFramerateFrom() {
+    public float getFramerateFrom() {
         return framerateFrom;
     }
 
-    public void setFramerateFrom(int framerateFrom) {
+    public void setFramerateFrom(float framerateFrom) {
         this.framerateFrom = framerateFrom;
     }
 
-    public int getFramerateInto() {
+    public float getFramerateInto() {
         return framerateInto;
     }
 
-    public void setFramerateInto(int framerateInto) {
+    public void setFramerateInto(float framerateInto) {
         this.framerateInto = framerateInto;
+    }
+
+    public String getSubtitleType() {
+        return subtitleType;
+    }
+
+    public void setSubtitleType(String subtitleType) {
+        this.subtitleType = subtitleType;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 }

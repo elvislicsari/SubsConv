@@ -1,6 +1,7 @@
 package com.subsconvertor.detector;
 
 import com.subsconvertor.exception.SystemException;
+import com.subsconvertor.model.SubtitleType;
 import com.subsconvertor.utils.Globals;
 
 import java.io.*;

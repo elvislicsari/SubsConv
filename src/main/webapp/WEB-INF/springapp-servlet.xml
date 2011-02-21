@@ -9,22 +9,26 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <!-- Configures the @Controller programming model -->
-    <mvc:annotation-driven/>
+    <!--<mvc:annotation-driven/>-->
 
-    <context:component-scan base-package="com.subsconvertor"/>
+    <!--<context:component-scan base-package="com.subsconvertor"/>-->
 
-    <bean id="multipartResolver" class="org.gmr.web.multipart.GMultipartResolver">
+    <import resource="classes/dao-spring-context.xml"/>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <!-- one of the properties available; the maximum subtitle size in bytes -->
         <property name="maxUploadSize" value="100000"/>
     </bean>
 
-    <bean class="com.subsconvertor.dao.SingletonEntityManagerFactory" id="entityManagerFactory" lazy-init="false">
-        <property name="persistenceUnitName" value="transactions-optional"/>
-    </bean>
+    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="url" value="jdbc:mysql://localhost/subconv"/>-->
+        <!--<property name="username" value="apps"/>-->
+        <!--<property name="password" value="parola"/>-->
+    <!--</bean>-->
 
-    <bean class="org.springframework.orm.jpa.JpaTransactionManager" id="transactionManager">
-        <property name="entityManagerFactory" ref="entityManagerFactory"/>
-    </bean>
+    <!--<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource" />-->
+    <!--</bean>-->
 
 </beans>

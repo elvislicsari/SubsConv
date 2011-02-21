@@ -15,7 +15,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>springapp</servlet-name>
-		<url-pattern>*.html</url-pattern>
+		<url-pattern>*.htm</url-pattern>
 	</servlet-mapping>
 
 	<!-- Welcome files -->

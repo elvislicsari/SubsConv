@@ -1,6 +1,6 @@
 package com.subsconvertor.converters;
 
-import com.subsconvertor.detector.SubtitleType;
+import com.subsconvertor.model.SubtitleType;
 import com.subsconvertor.exception.SystemException;
 
 import java.util.HashMap;
