@@ -1,0 +1,122 @@
+* {
+	margin:0px auto;
+}
+
+body
+{
+	background-image: url("../images/diagonalstripe.png");
+	background-repeat: repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 80%;
+	padding:0px;
+	width:1000px;
+	color: #797979;
+}
+
+h2, h3 {
+	padding: 20px 0px 20px 40px;
+	color: #9fc54e;
+}
+
+a {
+	color: #9fc54e;
+	text-decoration: none;
+}
+
+p {
+	letter-spacing:0.2px;
+	padding: 0px 0px 20px 40px;
+}
+
+legend {
+	font-size: 15px;
+	font-weight:bold;
+}
+
+
+/* IDs */
+
+#content
+{
+	background-color : #1a1a1a;
+	margin:0px auto;
+	width:1000px;
+	padding-bottom:20px;
+}
+
+#messages {
+	background-color : #1a1a1a;
+	padding-bottom:10px;
+}
+
+#messagesHolder {
+	-moz-border-radius-topleft: 20px;
+	-webkit-border-top-left-radius: 20px;
+	-moz-border-radius-topright: 20px;
+	-webkit-border-top-right-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+	-webkit-border-bottom-right-radius: 20px;
+	-moz-border-radius-bottomleft: 20px;
+	-webkit-border-bottom-left-radius: 20px;
+	background-color: #f1f6b5;
+	width: 60%;
+}
+
+#messages p {
+	padding: 0px;
+	font-weight: bold;
+	font-size: 16px;
+	color : #E42217;
+	text-align: center;
+}
+
+#header
+{
+	margin-top: 2em;
+	-moz-border-radius-topleft: 20px;
+    -webkit-border-top-left-radius: 20px;
+	-moz-border-radius-topright: 20px;
+    -webkit-border-top-right-radius: 20px;
+	background:#1a1a1a;
+	padding : 0px 0px 10px 30px;
+	height: 45px;
+}
+
+#footer
+{
+	-moz-border-radius-bottomleft: 20px;
+    -webkit-border-bottom-left-radius: 20px;
+	-moz-border-radius-bottomright: 20px;
+    -webkit-border-bottom-right-radius: 20px;
+	background:#1a1a1a;
+	border-top: 3px solid;
+	padding : 0px 0px 10px 0px;
+	height:35px;
+}
+
+#footerImagesRight {
+	padding-top:10px;
+	float:right;
+}
+
+#footerImagesLeft {
+	height: 35px;
+	padding-top:10px;
+	padding-left:20px;
+	float:left;
+}
+
+#footerImagesLeft p {
+	display: inline;
+	padding-left: 0px;
+	padding-right: 10px;
+	font-size: 10px;
+	margin-top:8px;
+	float:left;
+}
+
+#footerImagesLeft p a {
+	padding-left: 0px;
+	text-decoration: none;
+	color: #f1f6b5;
+}

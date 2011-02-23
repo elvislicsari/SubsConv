@@ -1,0 +1,73 @@
+
+/* IDs */
+
+#fieldset
+{
+	width: 30em;
+	border : 0px;
+	margin-bottom:1.5em;
+	padding: 1em 1em 1em 1em;
+	background-color: #333333;
+	color: #f1f6b5;
+}
+
+#fieldsetInInfo
+{
+	width: 30em;
+	margin-bottom:1.5em;
+	padding: 1em 1em 1em 1em;
+	border: 0px;
+	float:left;
+	background-color: #333333;
+	color: #f1f6b5;
+}
+
+#fieldsetWithInfo
+{
+	width: 44.3em;
+	margin-bottom:1.5em;
+	padding: 1em 1em 1em 1em;
+	color: #f1f6b5;
+}
+
+#lastFieldset
+{
+	width: 30em;
+	border:0px;
+	padding: 1em 1em 1em 1em;
+	background-color: #333333;
+	color: #f1f6b5;
+}
+
+#h3sForm fieldset.submit
+{
+	border: none;
+	background-color: transparent;
+	text-align: center;
+}
+
+#h3sForm input
+{
+	display: block;
+	width: 15em;
+}
+
+#h3sForm label
+{
+	display: block;
+	margin-bottom: 1.4em;
+	
+}
+
+#h3sForm select
+{
+	display: block;
+	background-color: #333333;
+	color: #f1f6b5;
+	width: 15em;
+}
+
+#translateSelect {
+	width: 10em;
+	text-align: left;
+}
