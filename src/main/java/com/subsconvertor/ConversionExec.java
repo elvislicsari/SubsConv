@@ -23,8 +23,8 @@ public class ConversionExec {
     private Language languageFrom;
     private Language languageInto;
 
-    public ConversionExec() {
-        subsDetector = new SubsDetector();
+    public ConversionExec(SubsDetector detector) {
+        subsDetector = detector;
     }
 
     public StringBuilder convert(byte[] sub) throws Exception {

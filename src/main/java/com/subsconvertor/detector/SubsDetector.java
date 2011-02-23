@@ -1,5 +1,6 @@
 package com.subsconvertor.detector;
 
+import com.subsconvertor.exception.SubtitleTypeException;
 import com.subsconvertor.exception.SystemException;
 import com.subsconvertor.model.SubtitleType;
 import com.subsconvertor.utils.Globals;
@@ -14,24 +15,20 @@ import java.util.regex.Pattern;
 public class SubsDetector {
 
     public SubtitleType detectSubtitleType(byte[] b) {
-        try {
-            ByteArrayInputStream bis = new ByteArrayInputStream(b);
-            BufferedReader br = new BufferedReader(new InputStreamReader(bis));
 
-            if (checkSrtFile(br)) {
-                return SubtitleType.SubRip;
-            } else if (checkSubFile(br)) {
-                return SubtitleType.MicroDVD;
-            } else {
-                throw new SystemException("Subtitle type not recognized");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new SystemException(e.getMessage());
+        ByteArrayInputStream bis = new ByteArrayInputStream(b);
+        BufferedReader br = new BufferedReader(new InputStreamReader(bis));
+
+        if (checkSrtFile(br)) {
+            return SubtitleType.SubRip;
+        } else if (checkSubFile(br)) {
+            return SubtitleType.MicroDVD;
+        } else {
+            throw new SubtitleTypeException("Subtitle type not recognized!");
         }
     }
 
-    public boolean checkSrtFile(BufferedReader br) {
+    protected boolean checkSrtFile(BufferedReader br) {
         try {
             String strLine;
             int counter = 1;
@@ -69,7 +66,7 @@ public class SubsDetector {
         return false;
     }
 
-    public boolean checkSubFile(BufferedReader br) {
+    protected boolean checkSubFile(BufferedReader br) {
         try {
             String strLine;
             int counter = 1;

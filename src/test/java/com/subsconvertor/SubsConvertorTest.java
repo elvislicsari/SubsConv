@@ -2,9 +2,11 @@ package com.subsconvertor;
 
 import com.google.api.translate.Language;
 import com.google.api.translate.Translator;
+import com.subsconvertor.detector.SubsDetector;
 import com.subsconvertor.model.SubtitleType;
 
 import java.math.BigDecimal;
+import java.util.Arrays;
 
 /**
  *
@@ -13,14 +15,22 @@ public class SubsConvertorTest extends FilesHelperTest {
     @org.junit.Test
     public void testConversion() throws Exception {
 
-        ConversionExec conv = new ConversionExec();
-        conv.setFromFramerate(new BigDecimal(0));
-        conv.setToFramerate(new BigDecimal(0));
-        conv.setLanguageFrom(Language.ENGLISH);
-        conv.setLanguageInto(Language.ROMANIAN);
-        byte[] b = getByteArrayFromFile("respiro.sub");
-        StringBuilder sb = conv.convert(b);
-        saveNewConvertedFile(sb, "respiro_conv.srt");
+//        System.out.println(Arrays.toString(Language.values()));
+//        System.out.println(Language.valueOf("ENGLISH").name());
+//        System.out.println(Language.valueOf("ENGLISH"));
+//        System.out.println(Language.valueOf(Language.valueOf("en").name()));
+//
+//        Language[] languages = Language.values();
+//        System.out.println(languages[4].name());
+
+//        ConversionExec conv = new ConversionExec(new SubsDetector());
+//        conv.setFromFramerate(new BigDecimal(0));
+//        conv.setToFramerate(new BigDecimal(0));
+//        conv.setLanguageFrom(Language.ENGLISH);
+//        conv.setLanguageInto(Language.ROMANIAN);
+//        byte[] b = getByteArrayFromFile("respiro.sub");
+//        StringBuilder sb = conv.convert(b);
+//        saveNewConvertedFile(sb, "respiro_conv.srt");
 //
 //        byte[] b = getByteArrayFromFile("SinNombre.srt");
 //        StringBuilder sb = conv.convert(b);
