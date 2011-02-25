@@ -81,9 +81,10 @@ public class SubSynchController {
 
         ModelAndView model = createModelAndView();
 
-        if (sub == null) {
+        if (sub == null || sub.isEmpty()) {
             messages.add("Please choose a subtitle!");
             model.addObject(MESSAGES, messages);
+            return model;
         }
 
         // TODO: validate this
@@ -111,12 +112,12 @@ public class SubSynchController {
 
                 if (framerateFrom != 0.0 && framerateInto != 0.0 &&
                         (framerateFrom != framerateInto ||
-                                (framerateFrom == framerateInto && (!subtitleTypeChosen.equals(NONE) && !subtitleTypeChosen.equals(typeDetected))))) {
+                                (framerateFrom == framerateInto && (!subtitleTypeChosen.equals(NONE) && !subtitleTypeChosen.equals(typeDetected.toString()))))) {
                     subb.setFramerateFrom(framerateFrom);
                     subb.setFramerateInto(framerateInto);
                     conv.setFromFramerate(new BigDecimal(framerateFrom));
                     conv.setToFramerate(new BigDecimal(framerateInto));
-                    if (!subtitleTypeChosen.equals(NONE) && !subtitleTypeChosen.equals(typeDetected)) {
+                    if (!subtitleTypeChosen.equals(NONE) && !subtitleTypeChosen.equals(typeDetected.toString())) {
                         subb.setSubtitleType(subtitleTypeChosen);
                         conv.setSubtitleType(SubtitleType.valueOf(subtitleTypeChosen));
                         subtitleExtension = SubtitleType.valueOf(subtitleTypeChosen).getExtension();
