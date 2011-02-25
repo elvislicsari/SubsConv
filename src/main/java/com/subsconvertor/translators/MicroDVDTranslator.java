@@ -3,7 +3,6 @@ package com.subsconvertor.translators;
 import com.google.api.translate.Language;
 import com.google.api.translate.Translator;
 import com.subsconvertor.model.MultiDVDGoogleKey;
-import com.subsconvertor.model.SubRipGoogleKey;
 import com.subsconvertor.utils.Globals;
 
 import java.util.*;
@@ -13,14 +12,14 @@ import java.util.regex.Pattern;
 /**
  *
  */
-class MicroDVDTranslator extends AbstractSubtitleTranslator {
+final class MicroDVDTranslator extends AbstractSubtitleTranslator {
 
     public StringBuilder translate(StringBuilder sb) throws Exception {
 
         Translator.setHttpReferrer("www.subsynch.com");
         Scanner sc = new Scanner(sb.toString()).useDelimiter(Globals.newline);
         String subLine = "";
-        int lineNumber=0;
+        int lineNumber = 0;
         int charsCounter = 0;
 
         List<Map<MultiDVDGoogleKey, String>> allContentList = new ArrayList<Map<MultiDVDGoogleKey, String>>();
@@ -34,7 +33,7 @@ class MicroDVDTranslator extends AbstractSubtitleTranslator {
             Pattern pattern = Pattern.compile(Globals.MicroDVD_PATTERN_ENTIRE_LINE);
             Matcher matcher = pattern.matcher(subLine);
             matcher.find();
-            key.setFramerates("{"+matcher.group(1)+"}{"+matcher.group(2)+"}");
+            key.setFramerates("{" + matcher.group(1) + "}{" + matcher.group(2) + "}");
 
             if (charsCounter >= Globals.googleTranslatorCharsLimit) {
                 allContentList.add(googleChunkSizeList);
@@ -85,7 +84,7 @@ class MicroDVDTranslator extends AbstractSubtitleTranslator {
         for (Map<MultiDVDGoogleKey, String> chunk : allContentList) {
             for (Map.Entry<MultiDVDGoogleKey, String> entry : chunk.entrySet()) {
                 sbNew.append(entry.getKey().getFramerates());
-                sbNew.append(entry.getValue()+Globals.newline);
+                sbNew.append(entry.getValue() + Globals.newline);
             }
         }
 

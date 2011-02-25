@@ -1,7 +1,5 @@
 package com.subsconvertor.utils;
 
-import java.util.logging.Level;
-
 /**
  *
  */

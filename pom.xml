@@ -14,11 +14,7 @@
     </properties>
 
     <dependencies>
-        <!--<dependency>-->
-        <!--<groupId>org.springframework</groupId>-->
-        <!--<artifactId>spring-orm</artifactId>-->
-        <!--<version>3.0.5.RELEASE</version>-->
-        <!--</dependency>-->
+
         <dependency>
             <groupId>joda-time</groupId>
             <artifactId>joda-time</artifactId>
@@ -37,22 +33,24 @@
             <version>1.0</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-api-1.0-sdk</artifactId>-->
-        <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-1.0-sdk</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>servlet-api</artifactId>
             <version>2.5</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.8.1</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>
@@ -68,15 +66,15 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${org.springframework.version}</version>
-        </dependency>
-
-        <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.13</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${org.springframework.version}</version>
         </dependency>
 
         <dependency>
@@ -115,17 +113,30 @@
             <version>${org.springframework.version}</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-tools-sdk</artifactId>-->
-        <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>javax.persistence</groupId>-->
-        <!--<artifactId>persistence-api</artifactId>-->
-        <!--<version>1.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${org.springframework.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-tools-sdk</artifactId>
+            <version>1.4.0</version>
+        </dependency>
+
+
+        <dependency>
+            <groupId>javax.persistence</groupId>
+            <artifactId>persistence-api</artifactId>
+            <version>1.0</version>
+        </dependency>
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -134,81 +145,72 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${org.springframework.version}</version>
+            <groupId>asm</groupId>
+            <artifactId>asm</artifactId>
+            <version>3.1</version>
         </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>asm</groupId>-->
-        <!--<artifactId>asm</artifactId>-->
-        <!--<version>3.1</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.google.appengine.orm</groupId>
+            <artifactId>datanucleus-appengine</artifactId>
+            <version>1.0.7</version>
+        </dependency>
 
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-core</artifactId>
+            <version>1.1.5</version>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine.orm</groupId>-->
-        <!--<artifactId>datanucleus-appengine</artifactId>-->
-        <!--<version>1.0.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jpa_3.0_spec</artifactId>
+            <version>1.1.1</version>
+            <scope>compile</scope>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-core</artifactId>-->
-        <!--<version>2.1.0-m1</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.apache.geronimo.specs</groupId>
+            <artifactId>geronimo-jta_1.1_spec</artifactId>
+            <version>1.1.1</version>
+            <scope>compile</scope>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-enhancer</artifactId>-->
-        <!--<version>1.1.4</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>javax.jdo</groupId>
+            <artifactId>jdo2-api</artifactId>
+            <version>2.3-eb</version>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.apache.geronimo.specs</groupId>-->
-        <!--<artifactId>geronimo-jpa_3.0_spec</artifactId>-->
-        <!--<version>1.1.1</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-jpa</artifactId>
+            <version>1.1.5</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-labs</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>javax.jdo</groupId>-->
-        <!--<artifactId>jdo2-api</artifactId>-->
-        <!--<version>2.3-eb</version>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-api-stubs</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
+        <dependency>
+            <groupId>com.google.appengine</groupId>
+            <artifactId>appengine-testing</artifactId>
+            <version>1.4.0</version>
+        </dependency>
 
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>datanucleus-jpa</artifactId>-->
-        <!--<version>1.1.5</version>-->
-        <!--</dependency>-->
-
-
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-api-labs</artifactId>-->
-        <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-api-stubs</artifactId>-->
-        <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>com.google.appengine</groupId>-->
-        <!--<artifactId>appengine-testing</artifactId>-->
-        <!--<version>1.4.0</version>-->
-        <!--</dependency>-->
-
-        <!--<dependency>-->
-        <!--<groupId>org.datanucleus</groupId>-->
-        <!--<artifactId>maven-datanucleus-plugin</artifactId>-->
-        <!--<version>2.0.0-release</version>-->
-        <!--</dependency>-->
-
+        <dependency>
+            <groupId>org.datanucleus</groupId>
+            <artifactId>datanucleus-enhancer</artifactId>
+            <version>1.1.4</version>
+        </dependency>
 
     </dependencies>
 
@@ -224,25 +226,25 @@
                 </configuration>
             </plugin>
 
-            <!--<plugin>-->
-            <!--<groupId>org.datanucleus</groupId>-->
-            <!--<artifactId>maven-datanucleus-plugin</artifactId>-->
-            <!--<version>2.0.0-m2</version>-->
-            <!--<configuration>-->
-            <!--<api>jpa</api>-->
-            <!--<verbose>true</verbose>-->
-            <!--<enhancerName>ASM</enhancerName>-->
-            <!--</configuration>-->
-            <!--<executions>-->
-            <!--<execution>-->
-            <!--<phase>process-classes</phase>-->
-            <!--<goals>-->
-            <!--<goal>enhance</goal>-->
-            <!--</goals>-->
-            <!--</execution>-->
-            <!--</executions>-->
-            <!--</plugin>-->
-
+            <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>maven-datanucleus-plugin</artifactId>
+                <version>2.0.0-m2</version>
+                <configuration>
+                    <api>jpa</api>
+                    <verbose>true</verbose>
+                    <enhancerName>ASM</enhancerName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>enhance</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            
         </plugins>
     </build>
 

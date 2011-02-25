@@ -9,6 +9,9 @@ import java.io.InputStreamReader;
  */
 public class FileUtils {
 
+    private FileUtils() {
+    }
+
     public static String getFileName(String fileName) {
         return fileName.substring(0, fileName.lastIndexOf("."));
     }

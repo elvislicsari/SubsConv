@@ -4,6 +4,7 @@ package com.subsconvertor.model;
  *
  */
 public enum SubtitleType {
+
     MicroDVD(".sub"),
     SubRip(".srt");
 

@@ -1,18 +1,27 @@
 package com.subsconvertor.model;
 
-import com.google.api.translate.Language;
+import com.google.appengine.api.datastore.Key;
 
-public class Subtitle {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import java.io.Serializable;
 
-    private long id;
+@Entity
+public class Subtitle implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Key key;
 
     private String subtitleName;
 
     private String subtitleContentType;
 
-    private byte[] subtitleOriginalContent;
+    private transient byte[] subtitleOriginalContent;
 
-    private byte[] subtitleConvertedContent;
+    private transient byte[] subtitleConvertedContent;
 
     private float framerateFrom;
 
@@ -21,14 +30,6 @@ public class Subtitle {
     private String subtitleType;
 
     private String language;
-
-    public long getId() {
-        return id;
-    }
-
-    public void setId(long id) {
-        this.id = id;
-    }
 
     public String getSubtitleName() {
         return subtitleName;

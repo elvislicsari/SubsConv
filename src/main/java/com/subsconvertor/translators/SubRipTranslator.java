@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 /**
  *
  */
-class SubRipTranslator extends AbstractSubtitleTranslator {
+final class SubRipTranslator extends AbstractSubtitleTranslator {
 
     /**
      * This method translates the subtitle line by line. It can be easily overwritten in the children classes
@@ -117,9 +117,9 @@ class SubRipTranslator extends AbstractSubtitleTranslator {
         //right here
         for (Map<SubRipGoogleKey, String> chunk : allContentList) {
             for (Map.Entry<SubRipGoogleKey, String> entry : chunk.entrySet()) {
-                sbNew.append(entry.getKey().getPackageNumber()+Globals.newline);
-                sbNew.append(entry.getKey().getTimeLine()+Globals.newline);
-                sbNew.append(entry.getValue().replaceAll(" \\"+Globals.linesSeparator+" ", Globals.newline)+Globals.newline);
+                sbNew.append(entry.getKey().getPackageNumber() + Globals.newline);
+                sbNew.append(entry.getKey().getTimeLine() + Globals.newline);
+                sbNew.append(entry.getValue().replaceAll(" \\" + Globals.linesSeparator + " ", Globals.newline) + Globals.newline);
                 sbNew.append(Globals.newline);
             }
         }

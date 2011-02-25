@@ -4,6 +4,7 @@ package com.subsconvertor.model;
  *
  */
 public class SubRipGoogleKey implements Comparable<SubRipGoogleKey> {
+    
     private int lineCounter;
     private int packageNumber;
     private String timeLine;

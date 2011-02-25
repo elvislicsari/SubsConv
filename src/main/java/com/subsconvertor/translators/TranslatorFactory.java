@@ -1,6 +1,5 @@
 package com.subsconvertor.translators;
 
-import com.subsconvertor.converters.Converter;
 import com.subsconvertor.exception.SystemException;
 import com.subsconvertor.model.SubtitleType;
 
@@ -10,12 +9,15 @@ import java.util.Map;
 /**
  *
  */
-public class TranslatorFactory {
+public final class TranslatorFactory {
 
     private static final Map<SubtitleType, SubtitleTranslator> cache = new HashMap<SubtitleType, SubtitleTranslator>(2) {{
         put(SubtitleType.SubRip, new SubRipTranslator());
         put(SubtitleType.MicroDVD, new MicroDVDTranslator());
     }};
+
+    private TranslatorFactory() {
+    }
 
     public static SubtitleTranslator create(SubtitleType type) {
         if (cache.containsKey(type)) {
