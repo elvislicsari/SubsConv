@@ -13,10 +13,10 @@ import java.util.regex.Pattern;
 
 class MicroDVDConverter implements Converter {
 
-    public StringBuilder createNewConvertedSubtitle(byte[] b, BigDecimal ratio) {
+    public StringBuilder createNewConvertedSubtitle(byte[] b, BigDecimal ratio, String encoding) {
         StringBuilder sb = new StringBuilder();
         try {
-            BufferedReader br = FileUtils.getBufferedReaderFromByteArray(b);
+            BufferedReader br = FileUtils.getBufferedReaderFromByteArray(b, encoding);
 
             String strLine;
 //            int counter = 1;

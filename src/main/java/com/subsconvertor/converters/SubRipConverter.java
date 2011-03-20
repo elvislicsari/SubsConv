@@ -18,11 +18,12 @@ class SubRipConverter implements Converter {
 
     private BigDecimal ratio;
 
-    public StringBuilder createNewConvertedSubtitle(byte[] b, BigDecimal ratio) {
+    public StringBuilder createNewConvertedSubtitle(byte[] b, BigDecimal ratio, String encoding) {
         this.ratio = ratio;
+        this.ratio = new BigDecimal(1.036144591611479);
         StringBuilder sb = new StringBuilder();
         try {
-            BufferedReader br = FileUtils.getBufferedReaderFromByteArray(b);
+            BufferedReader br = FileUtils.getBufferedReaderFromByteArray(b, encoding);
 
             String strLine;
 

@@ -140,7 +140,8 @@ public class SubSynchController {
 
                 StringBuilder convertedSub = null;
                 try {
-                    convertedSub = conv.convert(binatyContents);
+//                    @todo: trebuie detectat encodingul si bagat
+                    convertedSub = conv.convert(binatyContents, "ISO-8859-1");
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

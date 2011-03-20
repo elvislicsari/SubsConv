@@ -27,7 +27,7 @@ public class ConversionExec {
         subsDetector = detector;
     }
 
-    public StringBuilder convert(byte[] sub) throws Exception {
+    public StringBuilder convert(byte[] sub, String encoding) throws Exception {
 
         //detect the file type
         SubtitleType subTypeDetected = subsDetector.detectSubtitleType(sub);
@@ -38,7 +38,7 @@ public class ConversionExec {
             ratio = fromFramerate.divide(toFramerate, 10, BigDecimal.ROUND_UP);
         }
 
-        StringBuilder sb = conv.createNewConvertedSubtitle(sub, ratio);
+        StringBuilder sb = conv.createNewConvertedSubtitle(sub, ratio, encoding);
 
         if (languageFrom != null && languageInto != null) {
             SubtitleTranslator trans = TranslatorFactory.create(subTypeDetected);

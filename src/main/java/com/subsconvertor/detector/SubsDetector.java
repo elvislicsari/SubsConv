@@ -1,8 +1,11 @@
 package com.subsconvertor.detector;
 
+import com.ibm.icu.text.CharsetDetector;
+import com.ibm.icu.text.CharsetMatch;
 import com.subsconvertor.exception.SubtitleTypeException;
 import com.subsconvertor.exception.SystemException;
 import com.subsconvertor.model.SubtitleType;
+import com.subsconvertor.utils.FileUtils;
 import com.subsconvertor.utils.Globals;
 
 import java.io.*;
@@ -14,10 +17,17 @@ import java.util.regex.Pattern;
  */
 public class SubsDetector {
 
+    private String detectedEncoding;
+
+    public String getDetectedEncoding() {
+        return detectedEncoding;
+    }
+
     public SubtitleType detectSubtitleType(byte[] b) {
 
         ByteArrayInputStream bis = new ByteArrayInputStream(b);
-        BufferedReader br = new BufferedReader(new InputStreamReader(bis));
+        InputStreamReader in = new InputStreamReader(bis);
+        BufferedReader br = new BufferedReader(in);
 
         if (checkSrtFile(br)) {
             return SubtitleType.SubRip;
@@ -35,6 +45,7 @@ public class SubsDetector {
             boolean srtFirstLine = false;
             boolean srtSecondLine = false;
             while ((strLine = br.readLine()) != null) {
+//                System.out.println(">>>>>>>>>" + strLine + "<<<<<<<<<");
                 if (counter == 1) {
                     Pattern pattern = Pattern.compile(Globals.SubRip_PATTERN_FIRST_LINE);
                     Matcher matcher = pattern.matcher(strLine);
@@ -67,12 +78,14 @@ public class SubsDetector {
     }
 
     protected boolean checkSubFile(BufferedReader br) {
+//        System.out.println("intra ???");
         try {
             String strLine;
             int counter = 1;
             boolean subFirstLine = false;
             boolean subSecondLine = false;
             while ((strLine = br.readLine()) != null) {
+//                System.out.println(">>>>>>>>>" + strLine + "<<<<<<<<<");
                 if (counter == 1) {
                     Pattern pattern = Pattern.compile(Globals.MicroDVD_PATTERN_FIRST_LINE);
                     Matcher matcher = pattern.matcher(strLine);

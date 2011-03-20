@@ -4,7 +4,9 @@ import com.google.api.translate.Language;
 import com.google.api.translate.Translator;
 import com.subsconvertor.detector.SubsDetector;
 import com.subsconvertor.model.SubtitleType;
+import com.subsconvertor.utils.FileUtils;
 
+import java.io.PrintStream;
 import java.math.BigDecimal;
 import java.util.Arrays;
 
@@ -23,14 +25,20 @@ public class SubsConvertorTest extends FilesHelperTest {
 //        Language[] languages = Language.values();
 //        System.out.println(languages[4].name());
 
-//        ConversionExec conv = new ConversionExec(new SubsDetector());
-//        conv.setFromFramerate(new BigDecimal(0));
-//        conv.setToFramerate(new BigDecimal(0));
-//        conv.setLanguageFrom(Language.ENGLISH);
-//        conv.setLanguageInto(Language.ROMANIAN);
-//        byte[] b = getByteArrayFromFile("respiro.sub");
-//        StringBuilder sb = conv.convert(b);
-//        saveNewConvertedFile(sb, "respiro_conv.srt");
+        ConversionExec conv = new ConversionExec(new SubsDetector());
+        conv.setFromFramerate(new BigDecimal(23.976));
+        conv.setToFramerate(new BigDecimal(25));
+//        conv.setSubtitleType(SubtitleType.SubRip);
+        conv.setLanguageFrom(Language.ENGLISH);
+        conv.setLanguageInto(Language.GERMAN);
+        String subtitleName = "test_utf8_chars_en.srt";
+        String encoding = getEncoding(subtitleName);
+        System.out.println(encoding);
+        byte[] b = getByteArrayFromFile(subtitleName, encoding);
+        StringBuilder sb = conv.convert(b, encoding);
+//        System.out.println(sb);
+//        System.exit(0);
+        saveNewConvertedFile(sb, FileUtils.getFileName(subtitleName)+"_subsynched"+FileUtils.getFileExtension(subtitleName), encoding);
 //
 //        byte[] b = getByteArrayFromFile("SinNombre.srt");
 //        StringBuilder sb = conv.convert(b);
