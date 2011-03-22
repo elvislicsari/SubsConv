@@ -87,11 +87,9 @@ public class SubSynchController {
             return model;
         }
 
-        // TODO: validate this
         final byte[] binatyContents = sub.getBytes();
-        final String conetentType = sub.getContentType();
+        final String contentType = sub.getContentType();
         final String originalFileName = sub.getOriginalFilename();
-
 
         SubsDetector detect = new SubsDetector();
         try {
@@ -105,7 +103,7 @@ public class SubSynchController {
 
                 Subtitle subb = new Subtitle();
                 subb.setSubtitleName(originalFileName);
-                subb.setSubtitleContentType(conetentType);
+                subb.setSubtitleContentType(contentType);
                 subb.setSubtitleOriginalContent(binatyContents);
 
                 ConversionExec conv = new ConversionExec(detect);
@@ -155,7 +153,7 @@ public class SubSynchController {
                             + subtitleExtension
                             + "\"");
                     OutputStream out = response.getOutputStream();
-                    response.setContentType(conetentType);
+                    response.setContentType(contentType);
                     out.write(convertedSub.toString().getBytes());
                     out.flush();
                     out.close();

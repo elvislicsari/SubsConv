@@ -1,13 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head>
 <head>
-<title>Sub Synch - Faq</title>
+<title>SubSynch - Subtitle Synchronizer Faq</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="author" content="Sub Synch">
+<meta name="author" content="SubSynch">
 <meta name="robots" content="all">
 <meta name="MSSmartTagsPreventParsing" content="true">
-<meta name="description" content="">
-<meta name="keywords" content="subtitle, framerate, synchronize, subtitle type, synchronize subtitle, synchronize framerate, convert subtitle, translate subtitle, change subtitle, change subtitle type, change subtitle framerate, SubRip, subtitles, Sub Synch, MicroDVD">
+<meta name="description" content="SubSynch - Subtitle Synchronizer is an online subtitle tool meant to help you synchronize your subtitle with a movie.">
+<meta name="keywords" content="subsynch, subtitle synchronizer, synchronize subtitle, synchronize framerate, convert subtitle, translate subtitle, change subtitle, change subtitle type, change subtitle framerate">
 <style type="text/css" media="all">
 	@import "css/main.css";
 	@import "css/fieldsets.css";
@@ -34,7 +34,7 @@
 
 
 	<div id="content">
-		<h2>Faq</h2>
+		<h2>SubSynch - Subtitle Synchronizer Faq</h2>
 
 		<h3><a name="framerateFrom"></a>What does framerate from means ?</h3>
 		<p>Framerate from is the current framerate of the subtitle. If you want to use SubSynch to synchronize correctly a subtitle, then, most probably the subtitle's framerate is not the correct one. There is no way you can know for sure what is the correct framerate of the subtitle. There are many cases when you download a subtitle from a site where the subtitle framerate is specified, but the subtitle doesn't work with the movie, although the subtitle's framerate is the same with the movie's. So if you want to synchronize your subtitle correctly, you have 2 options here: either you're like me, not a very patience person, and you try the other framerates values that are not equal with framerate into, or you can pay attention and compare the movie with the subtitle. If in the movie a line is being said, let's say at 00:10:00 and in the subtitle file the same line is mapped at 00:09:58, then you should choose a smaller value for framerate from than the value of framerate into. And vice-versa.</p>
