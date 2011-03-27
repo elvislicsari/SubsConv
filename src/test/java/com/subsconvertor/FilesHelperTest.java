@@ -7,6 +7,7 @@ import com.subsconvertor.utils.FileUtils;
 import com.subsconvertor.utils.UnicodeBOMInputStream;
 import junit.framework.TestCase;
 import org.apache.commons.io.IOUtils;
+import org.junit.Ignore;
 import sun.nio.cs.UnicodeEncoder;
 
 import java.io.*;
@@ -14,6 +15,7 @@ import java.io.*;
 /**
  *
  */
+@Ignore
 public class FilesHelperTest extends TestCase {
 
     //sub file paths

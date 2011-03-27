@@ -29,9 +29,9 @@ public class SubsConvertorTest extends FilesHelperTest {
         conv.setFromFramerate(new BigDecimal(23.976));
         conv.setToFramerate(new BigDecimal(25));
 //        conv.setSubtitleType(SubtitleType.SubRip);
-        conv.setLanguageFrom(Language.ENGLISH);
-        conv.setLanguageInto(Language.GERMAN);
-        String subtitleName = "test_utf8_chars_en.srt";
+//        conv.setLanguageFrom(Language.ENGLISH);
+//        conv.setLanguageInto(Language.GERMAN);
+        String subtitleName = "test_utf8_chars.sub";
         String encoding = getEncoding(subtitleName);
         System.out.println(encoding);
         byte[] b = getByteArrayFromFile(subtitleName, encoding);

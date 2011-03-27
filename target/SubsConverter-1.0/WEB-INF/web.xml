@@ -14,10 +14,10 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-    <servlet>
-        <servlet-name>default</servlet-name>
-        <servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>
-    </servlet>
+    <!--<servlet>-->
+        <!--<servlet-name>default</servlet-name>-->
+        <!--<servlet-class>org.mortbay.jetty.servlet.DefaultServlet</servlet-class>-->
+    <!--</servlet>-->
 
     <servlet-mapping>
         <servlet-name>springapp</servlet-name>

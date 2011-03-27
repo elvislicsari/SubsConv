@@ -1,6 +1,6 @@
 <div id="footer">
 	<div id="footerImagesLeft">
-		<p>design and programing by <a href="#">E</a>&<a href="#">C</a></p>
+		<!--<p>design and programing by <a href="#">E</a>&<a href="#">C</a></p>-->
 		<img src="images/appengine-silver-120x30.gif" alt="Powered by Google App Engine" />
 	</div>
 	<div id="footerImagesRight">

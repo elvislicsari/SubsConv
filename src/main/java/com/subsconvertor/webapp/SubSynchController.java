@@ -9,6 +9,7 @@ import com.subsconvertor.exception.SubtitleTypeException;
 import com.subsconvertor.model.Subtitle;
 import com.subsconvertor.model.SubtitleType;
 import com.subsconvertor.utils.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.gmr.web.multipart.GMultipartFile;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
@@ -87,13 +89,25 @@ public class SubSynchController {
             return model;
         }
 
-        final byte[] binatyContents = sub.getBytes();
+        byte[] binaryContents = sub.getBytes();
         final String contentType = sub.getContentType();
         final String originalFileName = sub.getOriginalFilename();
 
+        String encoding = "ISO-8859-1";
+        try {
+            encoding = FileUtils.detectEncoding(sub.getInputStream());
+            if (encoding.contains("UTF-8")) {
+                binaryContents = FileUtils.getByteArrayWithoutBOM(sub.getInputStream());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        System.out.println(encoding);
+
+
         SubsDetector detect = new SubsDetector();
         try {
-            SubtitleType typeDetected = detect.detectSubtitleType(binatyContents);
+            SubtitleType typeDetected = detect.detectSubtitleType(binaryContents);
             String subtitleExtension = typeDetected.getExtension();
 
             if ((framerateFrom != 0.0 && framerateInto != 0.0 &&
@@ -104,7 +118,7 @@ public class SubSynchController {
                 Subtitle subb = new Subtitle();
                 subb.setSubtitleName(originalFileName);
                 subb.setSubtitleContentType(contentType);
-                subb.setSubtitleOriginalContent(binatyContents);
+                subb.setSubtitleOriginalContent(binaryContents);
 
                 ConversionExec conv = new ConversionExec(detect);
 
@@ -138,14 +152,13 @@ public class SubSynchController {
 
                 StringBuilder convertedSub = null;
                 try {
-//                    @todo: trebuie detectat encodingul si bagat
-                    convertedSub = conv.convert(binatyContents, "ISO-8859-1");
+                    convertedSub = conv.convert(binaryContents, encoding);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                subb.setSubtitleConvertedContent(convertedSub.toString().getBytes());
+                subb.setSubtitleConvertedContent(convertedSub.toString().getBytes(encoding));
 
-                jpaDao.save(subb);
+                subtitleDao.saveSubtitle(subb);
 
                 try {
                     response.setHeader("Content-Disposition", "inline;filename=\""
@@ -154,7 +167,8 @@ public class SubSynchController {
                             + "\"");
                     OutputStream out = response.getOutputStream();
                     response.setContentType(contentType);
-                    out.write(convertedSub.toString().getBytes());
+                    response.setCharacterEncoding(encoding);
+                    out.write(convertedSub.toString().getBytes(encoding));
                     out.flush();
                     out.close();
                     return null;

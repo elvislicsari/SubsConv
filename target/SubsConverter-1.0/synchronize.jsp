@@ -3,13 +3,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>Sub Synch - Synchronize</title>
+<title>SubSynch - Subtitle Synchronizer</title>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<meta name="author" content="Sub Synch">
+<meta name="author" content="SubSynch">
 <meta name="robots" content="all">
 <meta name="MSSmartTagsPreventParsing" content="true">
-<meta name="description" content="">
-<meta name="keywords" content="subtitle, framerate, synchronize, subtitle type, synchronize subtitle, synchronize framerate, convert subtitle, translate subtitle, change subtitle, change subtitle type, change subtitle framerate, SubRip, subtitles, Sub Synch, MicroDVD">
+<meta name="description" content="SubSynch - Subtitle Synchronizer is an online subtitle tool meant to help you synchronize your subtitle with a movie.">
+<meta name="keywords" content="subsynch, subtitle synchronizer, synchronize subtitle, synchronize framerate, convert subtitle, translate subtitle, change subtitle, change subtitle type, change subtitle framerate">
 <style type="text/css" media="all">
 	@import "css/main.css";
 	@import "css/fieldsets.css";
@@ -21,14 +21,17 @@
 
 <script type="text/javascript">
 $(document).ready(function(){
-	$(".trigger").click(function(){
+	$("#trigger").click(function(){
 		$(".panel").toggle("fast");
 		$(this).toggleClass("active");
 		return false;
 	});
-	$("#triggerInternal").click(function(){
-		$(".panel").toggle("fast");
-		$(".trigger").toggleClass("active");
+	$("body").click(function(e){
+		var obj = (e.target ? e.target : e.srcElement);
+		if (obj.tagName == 'A' || obj.tagName == 'SELECT' || obj.tagName == 'INPUT') return true;
+		$(".panel").hide("fast");
+		//alert($("#trigger").attr("class"));
+		$("#trigger").attr("class", "trigger");
 		return false;
 	});
 });
@@ -51,13 +54,14 @@ $(document).ready(function(){
 
 
 	<div class="panel">
-	    <p id="internalCloseTrigger"><a id="triggerInternal" href="#">Close</a></p>
-		<p>This short info panel is meant to give you a short quick tour through the Sub Synch functionality. You will probably need this only once (or more likely don't need it at all).
-		If you still have any doubts about how to use SubSynch to synchronize your subtitle or need anymore info, you can check the <a href="faq">faq</a> page we have prepared.</p>
-		<h3>Framerate and subtitle type</h3>
-		<p><strong>Framerate from</strong> is the current framerate of the subtitle. My suggestion is to use all the other values from the drop-down box, that are not equal with the framerate into, and try to see if the downloaded subtitle works (<a href="faq#framerateFrom">read more</a>).</p>
-		<p><strong>Framerate into</strong> is the desired subtitle framerate. You can get this subtitle from your movie player, or if you know it that's even better (<a href="faq#framerateInto">read more</a>).</p>
-		<p><strong>Subtitle type</strong> represents the format in which the content is stored in the subtitle file (<a href="faq#subtitleType">read more</a>).</p>
+	    <h3>SubSynch - Subtitle Synchronizer</h3>
+	    <!--<p id="internalCloseTrigger"><a id="triggerInternal" href="#">Close</a></p>-->
+		<p>Subtitle Synchronizer is an online subtitle tool meant to help you synchronize your subtitle with a movie. This short info panel is meant to give you a short quick tour through the Sub Synch functionality. You will probably need this only once (or more likely don't need it at all).
+		If you still have any doubts about how to use SubSynch to synchronize your subtitle or need anymore info, you can check the subtitle synchronizer <a href="faq">faq</a> page we have prepared.</p>
+		<h3>Synchronize subtitle</h3>
+		<p><strong>Framerate from</strong> is the current framerate of the subtitle. My suggestion is to use all the other values from the drop-down box, that are not equal with the framerate into, and try to see if the downloaded subtitle works (<a href="faq#framerateFrom">see subsynch faq page</a>).</p>
+		<p><strong>Framerate into</strong> is the desired subtitle framerate. You can get this subtitle from your movie player, or if you know it that's even better (<a href="faq#framerateInto">see subsynch faq page</a>).</p>
+		<p><strong>Subtitle type</strong> represents the format in which the content is stored in the subtitle file (<a href="faq#subtitleType">see subsynch faq page</a>).</p>
 
 		<h3>Translate subtitle</h3>
 		<p>This is pretty straightforward to use, choose the language of the subtitle as <strong>language from</strong> and the desired language as <strong>language into</strong>.</p>
@@ -93,7 +97,7 @@ $(document).ready(function(){
 			</fieldset>
 
 			<div id="fieldsetWithInfo">
-			<a class="trigger" href="#">info</a>
+			<a class="trigger" id="trigger" href="#">info</a>
 			<fieldset id="fieldsetInInfo">
 				<legend>
 					Framerate and subtitle type

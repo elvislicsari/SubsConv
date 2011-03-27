@@ -232,6 +232,21 @@
                     <target>1.5</target>
                 </configuration>
             </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<configuration>-->
+                    <!--<excludes>-->
+                        <!--<exclude>-->
+                            <!--test/com/subsconvertor/FilesHelperTest.java-->
+                        <!--</exclude>-->
+                        <!--<exclude>-->
+                            <!--test/com/subsconvertor/detector/SubtitleDetectVoTest.java-->
+                        <!--</exclude>-->
+                    <!--</excludes>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
 
             <!--<plugin>-->
             <!--<groupId>org.datanucleus</groupId>-->
